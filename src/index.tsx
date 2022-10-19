@@ -1,7 +1,7 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import App from "./app";
 import { store } from "./state/store";
 import "./index.css";
@@ -12,10 +12,10 @@ const root = createRoot(document.getElementById("app"));
 root.render(
   <StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter basename="/">
         <GlobalStyles />
         <App />
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   </StrictMode>
 );

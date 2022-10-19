@@ -32,12 +32,9 @@ const App = () => {
 
   return (
     <Routes>
-      <Route path="/league-skins/" element={<BrowseChampions />} />
-      <Route
-        path="/league-skins/champion/:championId"
-        element={<ChampionInfo />}
-      />
-      <Route path="/league-skins/*" element={<NotFound />} />
+      <Route path="/" element={<BrowseChampions />} />
+      <Route path="/champion/:championId" element={<ChampionInfo />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };
