@@ -13,7 +13,6 @@ const ChampionInfoStyled = styled.div`
 
     .chrome-count {
       display: flex;
-      cursor: pointer;
 
       img {
         height: 20px;
@@ -37,15 +36,9 @@ const ChampionInfoStyled = styled.div`
         position: absolute;
         right: -5px;
         top: -5px;
-        transform: scale(0);
-        transition: transform 0.15s linear;
-
-        &.show {
-          transform: scale(1);
-        }
       }
 
-      img {
+      .skin-img {
         margin: 0 auto;
         transition: box-shadow 0.15s linear;
       }
@@ -54,7 +47,7 @@ const ChampionInfoStyled = styled.div`
         transform: scale(1.1);
         z-index: 100;
 
-        img {
+        .skin-img {
           box-shadow: 0 0 5px 2px #315b43;
         }
       }

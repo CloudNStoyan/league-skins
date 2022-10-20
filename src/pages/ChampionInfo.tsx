@@ -15,7 +15,6 @@ const ChampionInfo = () => {
 
   const [championData, setChampionData] = useState<ChampionData>(null);
   const [skinNum, setSkinNum] = useState(0);
-  const [highlightChromas, setHighlightChromas] = useState(false);
 
   useEffect(() => {
     const champData = championsData.find((champ) => champ.id === championId);
@@ -36,11 +35,7 @@ const ChampionInfo = () => {
               <div title="Champion skins without the original">
                 {championData.skins.length - 1} skins total
               </div>
-              <div
-                onMouseOver={() => setHighlightChromas(true)}
-                onMouseLeave={() => setHighlightChromas(false)}
-                className="chrome-count"
-              >
+              <div className="chrome-count">
                 {championData.skins.filter((skin) => skin.chromas).length} skins
                 with chromas
                 <img src={Chroma} />
@@ -58,17 +53,18 @@ const ChampionInfo = () => {
             {Object.values(championData.skins).map((skin) => (
               <button onClick={() => setSkinNum(skin.num)} key={skin.id}>
                 <img
+                  className="skin-img"
                   width="200"
                   src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championData.id}_${skin.num}.jpg`}
                 />
                 <span>{skin.name}</span>
-                <img
-                  className={`highlight-chroma ${
-                    skin.chromas && highlightChromas ? "show" : ""
-                  }`}
-                  title="This skin has chromas"
-                  src={Chroma}
-                />
+                {skin.chromas && (
+                  <img
+                    className="highlight-chroma"
+                    title="This skin has chromas"
+                    src={Chroma}
+                  />
+                )}
               </button>
             ))}
           </div>
